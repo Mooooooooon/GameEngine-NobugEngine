@@ -2,9 +2,7 @@
 
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
-
 #include "SplashScreen.h"
-
 
 class NobugEngine
 {
@@ -21,6 +19,8 @@ private:
 	static GameState _gameState;
 	static sf::RenderWindow _mainWindow;
 	
+	SplashScreen _splashScreen;
+
 	friend class SplashScreen;
 
 

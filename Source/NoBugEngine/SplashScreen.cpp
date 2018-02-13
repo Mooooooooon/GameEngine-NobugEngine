@@ -15,9 +15,5 @@ void SplashScreen::Show(sf::RenderWindow & renderwindow)
 	renderwindow.draw(sprite);
 	renderwindow.display();
 
-	sf::Event ev;
-	while (NobugEngine::_gameState != NobugEngine::Uninitialized)
-	{
-
-	}
+	
 }

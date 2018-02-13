@@ -16,6 +16,12 @@ void NobugEngine::Start() {
 
 
 	*/
+
+	sf::Event ev;
+	while (_gameState == ShowingSplash)
+	{
+		
+	}
 	_gameState = NobugEngine::Playing;
 
 	while (!IsExiting())

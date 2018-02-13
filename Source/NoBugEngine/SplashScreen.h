@@ -1,5 +1,8 @@
 #pragma once
-#include "Engine.h"
+#include <SFML\Window.hpp>
+#include <SFML\Graphics.hpp>
+
+
 class SplashScreen
 {
 public:
