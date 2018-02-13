@@ -1,6 +1,6 @@
 #include "SplashScreen.h"
 
-void SplashScreen::Show(sf::RenderWindow & window)
+void SplashScreen::Show(sf::RenderWindow & renderwindow)
 {
 	sf::Texture splashimage;
 	if (splashimage.loadFromFile("Images/SplashScreen.png") != true) {
@@ -12,8 +12,8 @@ void SplashScreen::Show(sf::RenderWindow & window)
 
 	
 	
-	window.draw(sprite);
-	window.display();
+	renderwindow.draw(sprite);
+	renderwindow.display();
 
 	sf::Event ev;
 	while (NobugEngine::_gameState != NobugEngine::Uninitialized)
