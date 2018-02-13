@@ -8,6 +8,6 @@ class SplashScreen
 public:
 	void Show(sf::RenderWindow& renderwindow);
 private:
-
+	sf::Vector2f resolution;
 
 };

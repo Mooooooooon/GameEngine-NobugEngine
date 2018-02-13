@@ -7,17 +7,17 @@
 class NobugEngine
 {
 public:
-	static void Start();
-	static void Initialize();
+	 void Start();
+	 void Initialize();
 	
 private:
-	static bool IsExiting();
-	static void GameLoop();
+	 bool IsExiting();
+	void GameLoop();
 	enum GameState {
 		Uninitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting
 	};
-	static GameState _gameState;
-	static sf::RenderWindow _mainWindow;
+	 GameState _gameState;
+	 sf::RenderWindow _mainWindow;
 	
 	SplashScreen _splashScreen;
 

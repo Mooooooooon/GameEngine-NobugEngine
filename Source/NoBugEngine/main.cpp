@@ -2,9 +2,10 @@
 
 
 int main() {
+	NobugEngine game;
+	game.Initialize();
+	game.Start();
 
-	NobugEngine::Initialize();
-	NobugEngine::Start();
 
 	return 0;
 }
