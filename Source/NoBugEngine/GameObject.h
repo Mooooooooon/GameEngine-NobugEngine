@@ -1,29 +1,46 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+
+#ifndef GameObject_h
+#define GameObject_h
+
+#include <stdio.h>
+#include "BaseComponent.h"
+#include "Transform.h"
+#include "BaseMessage.h"
+#include <iostream>
+#include <list>
+#include <vector>
+#include <iterator>
+
 class GameObject {
 public:
-	GameObject() {
-		parent = NULL;
+	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {
 	}
-	~GameObject(void);
-	void SetTransform(const sf::Transform &theransform) {
-		transform = theransform;
-	}
-	sf::Transform GetTransform() {
-		return transform;
-	}
-	sf::Transform GetWorldTransform() {
-		return worldTransform;
-	}
-	void SetParent(GameObject& par) {
-		parent = &par;
-	}
-	void AddChild(GameObject* ch);
 
-	virtual void Update(float msec);
-private:
-	GameObject* parent;
+	int GetObjectID() const { return m_UniqueID; }
+
+	void AddComponent(BaseComponent* component);
+
+
+	void SetParent(GameObject& parent) { m_Parent = &parent; }
+	void AddChild(GameObject* child);
+
+	void Update(float msec);
+	void Awake();
+	void Start();
+	void LateUpdate(float msec);
+
+public: // Members
+	Transform transform;    //local transform
+
+
+private: // Members
+	int m_UniqueID;
+
+	GameObject* m_Parent;
+	std::vector<GameObject*> m_Children;
+
 	sf::Transform worldTransform;
-	sf::Transform transform;
-	std::vector<GameObject*> children;
+	std::vector<BaseComponent*> m_Components;
 };
+#endif

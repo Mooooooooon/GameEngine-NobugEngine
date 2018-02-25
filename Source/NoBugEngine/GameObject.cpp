@@ -1,26 +1,42 @@
 #include "GameObject.h"
 
-GameObject::~GameObject(void) {
-	for (unsigned int i = 0; i < children.size(); i++) {
-		delete children[i];
+void GameObject::Awake() {
+	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
+		(*i)->Awake();
 	}
 }
 
-void GameObject::AddChild(GameObject* ch) {
-	children.push_back(ch);
-	ch->parent = this;
+void GameObject::Start() {
+	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
+		(*i)->Start();
+	}
 }
 
-void GameObject::Update(float deltaTime) {
-	if (parent) {
-		worldTransform = parent->worldTransform*transform;
+void GameObject::Update(float msec) {
+	if (m_Parent) {
+		worldTransform = m_Parent->worldTransform * transform.transformMatrix;
 	}
 	else {
-		worldTransform = transform;
+		worldTransform = transform.transformMatrix;
 	}
 
-	for (std::vector<GameObject*>::iterator i = children.begin(); i != children.end(); ++i)
-	{
-		(*i)->Update(deltaTime);
+	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
+		(*i)->Update();
 	}
 }
+
+void GameObject::LateUpdate(float msec) {
+	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
+		(*i)->LateUpdate();
+	}
+}
+
+void GameObject::AddComponent(BaseComponent* component)
+{
+	m_Components.push_back(component);
+}
+
+void GameObject::AddChild(GameObject* child) {
+	m_Children.push_back(child);
+}
+
