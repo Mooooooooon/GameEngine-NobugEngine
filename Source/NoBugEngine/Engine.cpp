@@ -1,4 +1,7 @@
 #include "Engine.h"
+#include "Initialize.h"
+
+
 
 
 void NobugEngine::Start() {
@@ -6,7 +9,6 @@ void NobugEngine::Start() {
 		return;
 
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "NobugGame");
-	_gameState = ShowingSplash;
 	while (!IsExiting())
 	{
 		GameLoop();
@@ -18,6 +20,51 @@ void NobugEngine::Start() {
 
 void NobugEngine::Initialize()
 {
+	//Check is only instance;
+	if (!Initialize::CheckIsOnlyInstance("NobugGame")) {
+		cout << "Check instance : One instance has already running." << endl;
+		return;
+	}
+
+	//Initialize graphic system & show splash screen
+	Initialize::InitGraphicSystem(&_mainWindow, 700, 500, "NobugGame");
+	_splashScreen.Show(_mainWindow);
+
+	//Check system
+	if (!Initialize::CheckHardDriveSpace(300 * 1024 * 1024)) {
+		cout << "CheckStorage failure : Not enough physical storage." << endl;
+		return;
+	}
+
+	if (!Initialize::CheckRAM(500)) {
+		cout << "Check RAM failure, Not enough RAM" << endl;
+		return;
+	}
+
+	if (!Initialize::CheckInputDevice()) {
+		cout << "Check input device failure, No input device" << endl;
+		return;
+	}
+
+	if (!Initialize::CheckOutputDevice()) {
+		cout << "Check output device failure, No output device" << endl;
+		return;
+	}
+
+	if (!Initialize::CheckCPUSpeed(2000)) {
+		cout << "Check CPU speed failure, CPU speed too low" << endl;
+		return;
+	}
+
+	//Initialize audio system
+	Initialize::InitAudioSystem();
+
+	//Initalize other...
+	//Implement here
+
+	//Initialization success
+	_gameState = ShowingSplash;
+
 	
 }
 

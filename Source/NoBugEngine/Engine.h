@@ -3,6 +3,10 @@
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 #include "SplashScreen.h"
+#include <Windows.h>
+#include <direct.h>
+
+
 
 class NobugEngine
 {
