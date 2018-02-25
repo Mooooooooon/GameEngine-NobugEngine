@@ -59,8 +59,7 @@ void NobugEngine::Initialize()
 	//Initialize audio system
 	Initialize::InitAudioSystem();
 
-	//Initalize other...
-	//Implement here
+	
 
 	//Initialization success
 	_gameState = ShowingSplash;
