@@ -5,11 +5,12 @@
 
 
 void NobugEngine::Start() {
-	if (_gameState != Uninitialized)
+	if (_gameState == Uninitialized)
 		return;
 
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "NobugGame");
-	while (!IsExiting())
+
+	while (_gameState != Exiting)
 	{
 		GameLoop();
 	}
@@ -66,11 +67,11 @@ void NobugEngine::Initialize()
 
 	
 }
-
-bool NobugEngine::IsExiting()
-{
-	return false;
-}
+//
+//bool NobugEngine::IsExiting()
+//{
+//	return false;
+//}
 
 void NobugEngine::GameLoop()
 {
@@ -79,6 +80,7 @@ void NobugEngine::GameLoop()
 	{
 
 		_splashScreen.Show(_mainWindow);
+
 		while (_mainWindow.pollEvent(event))
 		{
 			if (event.type == sf::Event::EventType::KeyPressed

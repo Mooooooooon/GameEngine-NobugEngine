@@ -15,7 +15,7 @@ public:
 	 void Initialize();
 	
 private:
-	 bool IsExiting();
+	//bool IsExiting();
 	void GameLoop();
 	enum GameState {
 		Uninitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting
