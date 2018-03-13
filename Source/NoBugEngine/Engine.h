@@ -18,7 +18,7 @@ private:
 	//bool IsExiting();
 	void GameLoop();
 	enum GameState {
-		Uninitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting
+		Uninitialized, Initialzed, Paused, ShowingMenu, Playing, Exiting
 	};
 	 GameState _gameState;
 	 sf::RenderWindow _mainWindow;

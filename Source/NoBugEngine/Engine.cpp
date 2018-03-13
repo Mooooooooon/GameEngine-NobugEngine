@@ -63,7 +63,7 @@ void NobugEngine::Initialize()
 	
 
 	//Initialization success
-	_gameState = ShowingSplash;
+	_gameState = Initialzed;
 
 	
 }
@@ -76,20 +76,28 @@ void NobugEngine::Initialize()
 void NobugEngine::GameLoop()
 {
 	sf::Event event;
-	while (_gameState == ShowingSplash)
+	while (_gameState == Initialzed)
 	{
+		// get input
+		// update
+			// update game objects
+			// update physics
+			// update AI
+		
+		// render
+		// play audio 
 
-		_splashScreen.Show(_mainWindow);
-
-		while (_mainWindow.pollEvent(event))
-		{
-			if (event.type == sf::Event::EventType::KeyPressed
-				|| event.type == sf::Event::EventType::MouseButtonPressed
-				|| event.type == sf::Event::EventType::Closed) {
-				_gameState = Exiting;
-			}
-		}
 	}
+	
+	//	_splashScreen.Show(_mainWindow);
 
+	//	while (_mainWindow.pollEvent(event))
+	//	{
+	//		if (event.type == sf::Event::EventType::KeyPressed
+	//			|| event.type == sf::Event::EventType::MouseButtonPressed
+	//			|| event.type == sf::Event::EventType::Closed) {
+	//			_gameState = Exiting;
+	//		}
+	//	}
 	_mainWindow.clear();
 }
