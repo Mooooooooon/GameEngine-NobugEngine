@@ -10,15 +10,16 @@
 class GameObjectManager
 {
 public:
-	bool SendMessage(BaseMessage* msg);
+
 	GameObject* CreateObject();
 
-	void Update(float msec);
+	void Update(sf::Time dt);
 	void Awake();
 	void Start();
-	void LateUpdate(float msec);
+	//void LateUpdate(sf::Time time);
 
 private:
 	std::map<int, GameObject*> m_Objects;
+
 	static int nextObjectID;
 };

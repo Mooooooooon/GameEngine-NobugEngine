@@ -15,7 +15,7 @@ void GameObject::Start() {
 	}
 }
 
-void GameObject::Update(float msec) {
+void GameObject::Update(sf::Time dt) {
 	if (m_Parent) {
 		worldTransform = m_Parent->worldTransform * transform.transformMatrix;
 	}
@@ -28,7 +28,7 @@ void GameObject::Update(float msec) {
 	}
 }
 
-void GameObject::LateUpdate(float msec) {
+void GameObject::LateUpdate(sf::Time dt) {
 	for (std::vector<BaseComponent*>::iterator i = m_Components.begin(); i != m_Components.end(); ++i) {
 		(*i)->LateUpdate();
 	}

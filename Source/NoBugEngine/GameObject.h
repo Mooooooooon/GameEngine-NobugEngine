@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include "BaseComponent.h"
 #include "Transform.h"
-#include "BaseMessage.h"
 #include <iostream>
 #include <list>
 #include <vector>
@@ -25,10 +24,10 @@ public:
 	void SetParent(GameObject& parent) { m_Parent = &parent; }
 	void AddChild(GameObject* child);
 
-	void Update(float msec);
+	void Update(sf::Time dt);
 	void Awake();
 	void Start();
-	void LateUpdate(float msec);
+	void LateUpdate(sf::Time dt);
 
 public: // Members
 	Transform transform;    //local transform

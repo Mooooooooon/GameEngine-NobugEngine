@@ -2,7 +2,7 @@
 #include "Initialize.h"
 
 
-
+const sf::Time NobugEngine::TimePerFrame = sf::milliseconds(17); // 16.6666 = 60fps
 
 void NobugEngine::Start() {
 	if (_gameState == Uninitialized)
@@ -10,6 +10,9 @@ void NobugEngine::Start() {
 
 
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "NobugGame");
+	GameObjectManager::Start;
+	GameObjectManager::CreateObject;
+
 
 	while (_gameState != Exiting)
 	{
@@ -74,19 +77,49 @@ void NobugEngine::Initialize()
 //	return false;
 //}
 
+void NobugEngine::InputProcess()
+{
+	sf::Event event;
+	while (_mainWindow.pollEvent(event))
+	{
+		
+		if (event.type == sf::Event::Closed)
+			_mainWindow.close();
+	}
+}
+
 void NobugEngine::GameLoop()
 {
 	sf::Event event;
 	while (_gameState == Initialzed)
 	{
+		
 		// get input
+
 		// update
+		sf::Time dt = clock.restart();
+		timeSinceLastUpdate += dt;
+
+		while (timeSinceLastUpdate > TimePerFrame)
+		{
+			timeSinceLastUpdate -= TimePerFrame;
+
 			// update game objects
+			GM.Update(TimePerFrame);
+			
 			// update physics
 			// update AI
+
+			
+
+
+			// render
+			// play audio 
+		}
 		
-		// render
-		// play audio 
+	
+			
+		
 
 	}
 	
