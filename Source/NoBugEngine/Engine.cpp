@@ -8,6 +8,7 @@ void NobugEngine::Start() {
 	if (_gameState == Uninitialized)
 		return;
 
+
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "NobugGame");
 
 	while (_gameState != Exiting)

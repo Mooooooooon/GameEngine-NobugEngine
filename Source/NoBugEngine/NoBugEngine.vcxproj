@@ -88,7 +88,7 @@
       <PreprocessorDefinitions>SFML_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\TEMP\Documents\GitHub\GameEngine-NobugEngine\Lib\SFML-2.4.2\lib;E:\School\Semester6\GameEngine\Lib\SFML-2.4.2\lib;..\..\Lib\SFML-2.4.2\include;..\Lib\SFML-2.4.2\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\TEMP\Documents\GitHub\GameEngine-NobugEngine\Lib\SFML-2.4.2\lib;E:\School\Semester6\GameEngine\Lib\SFML-2.4.2\lib;..\..\Lib\SFML-2.4.2\lib;..\..\Lib\SFML-2.4.2\include;..\Lib\SFML-2.4.2\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;flac.lib;freetype.lib;jpeg.lib;ogg.lib;openal32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;opengl32.lib;winmm.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

@@ -1,6 +1,1 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Engine.cpp
-c:\users\temp\documents\github\gameengine-nobugengine\source\nobugengine\engine.cpp(78): warning C4101: 'event': unreferenced local variable
-  NoBugEngine.vcxproj -> C:\Users\TEMP\Documents\GitHub\GameEngine-NobugEngine\Source\NoBugEngine\..\..\Debug\Win32_NoBugEngine\Win32_NoBugEngine.exe
-  NoBugEngine.vcxproj -> ..\..\Debug\Win32_NoBugEngine\Win32_NoBugEngine.pdb (Partial PDB)
+﻿e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Platforms\Win32\PlatformToolsets\v141\Toolset.targets(34,5): error MSB8036: The Windows SDK version 10.0.15063.0 was not found. Install the required version of Windows SDK or change the SDK version in the project property pages or by right-clicking the solution and selecting "Retarget solution".
