@@ -3,8 +3,9 @@
 
 int main() {
 	NobugEngine game;
-	game.Initialize();
-	game.Start();
+	if (game.Initialize()) {
+		game.Start();
+	}
 
 
 	

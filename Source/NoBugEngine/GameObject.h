@@ -10,8 +10,9 @@
 #include <list>
 #include <vector>
 #include <iterator>
+#include "Rigidbody.h"
 
-class GameObject {
+class GameObject : public sf::Transformable {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {
 	}
@@ -41,5 +42,9 @@ private: // Members
 
 	sf::Transform worldTransform;
 	std::vector<BaseComponent*> m_Components;
+	 
+	friend Rigidbody;
+
 };
+
 #endif

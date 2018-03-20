@@ -10,8 +10,7 @@ void NobugEngine::Start() {
 
 
 	_mainWindow.create(sf::VideoMode(1024, 768, 32), "NobugGame");
-	GameObjectManager::Start;
-	GameObjectManager::CreateObject;
+	
 
 
 	while (_gameState != Exiting)
@@ -23,53 +22,51 @@ void NobugEngine::Start() {
 
 }
 
-void NobugEngine::Initialize()
+bool NobugEngine::Initialize()
 {
 	//Check is only instance;
 	if (!Initialize::CheckIsOnlyInstance("NobugGame")) {
 		cout << "Check instance : One instance has already running." << endl;
-		return;
+		return false;
 	}
 
 	//Initialize graphic system & show splash screen
-	Initialize::InitGraphicSystem(&_mainWindow, 700, 500, "NobugGame");
+	Initialize::InitGraphicSystem(&_mainWindow, 1024, 768, "NobugGame");
 	_splashScreen.Show(_mainWindow);
 
 	//Check system
 	if (!Initialize::CheckHardDriveSpace(300 * 1024 * 1024)) {
 		cout << "CheckStorage failure : Not enough physical storage." << endl;
-		return;
+		return false;
 	}
 
 	if (!Initialize::CheckRAM(500)) {
 		cout << "Check RAM failure, Not enough RAM" << endl;
-		return;
+		return false;
 	}
 
 	if (!Initialize::CheckInputDevice()) {
 		cout << "Check input device failure, No input device" << endl;
-		return;
+		return false;
 	}
 
 	if (!Initialize::CheckOutputDevice()) {
 		cout << "Check output device failure, No output device" << endl;
-		return;
+		return false;
 	}
 
 	if (!Initialize::CheckCPUSpeed(2000)) {
 		cout << "Check CPU speed failure, CPU speed too low" << endl;
-		return;
+		return false;
 	}
 
-	//Initialize audio system
+	
 	Initialize::InitAudioSystem();
 
 	
-
-	//Initialization success
 	_gameState = Initialzed;
 
-	
+	return true;
 }
 //
 //bool NobugEngine::IsExiting()

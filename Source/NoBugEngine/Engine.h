@@ -13,7 +13,7 @@ class NobugEngine
 {
 public:
 	 void Start();
-	 void Initialize();
+	 bool Initialize();
 	
 private:
 	//bool IsExiting();
