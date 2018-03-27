@@ -1,5 +1,10 @@
 #pragma once
 #include <stdio.h>
+//#include "Audio.h"
+//#include "Renderer.h"
+//#include "Rigidbody.h"
+
+
 
 
 class BaseComponent {

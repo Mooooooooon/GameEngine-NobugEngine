@@ -4,6 +4,13 @@
 
 const sf::Time NobugEngine::TimePerFrame = sf::milliseconds(17); // 16.6666 = 60fps
 
+NobugEngine::NobugEngine() :
+	_mainWindow(),
+	_gameState(Uninitialized)
+{
+
+}
+
 void NobugEngine::Start() {
 	if (_gameState == Uninitialized)
 		return;
@@ -59,11 +66,16 @@ bool NobugEngine::Initialize()
 		cout << "Check CPU speed failure, CPU speed too low" << endl;
 		return false;
 	}
+	_physics = new Physics();
 
+	
+	GM = new GameObjectManager();
 	
 	Initialize::InitAudioSystem();
 
-	
+	_world = new World(_physics,GM);
+	_world->Start();
+
 	_gameState = Initialzed;
 
 	return true;
@@ -99,18 +111,24 @@ void NobugEngine::GameLoop()
 
 		while (timeSinceLastUpdate > TimePerFrame)
 		{
-			timeSinceLastUpdate -= TimePerFrame;
+			timeSinceLastUpdate -= sf::Time::Zero;
 
 			// update game objects
-			GM.Update(TimePerFrame);
+			GM->Update(TimePerFrame);
 			
 			// update physics
+			//_physics->UpdatePhysics(TimePerFrame);
+
 			// update AI
 
 			
 
 
 			// render
+			_mainWindow.clear();
+			Render();
+			_mainWindow.display();
+
 			// play audio 
 		}
 		
@@ -131,4 +149,17 @@ void NobugEngine::GameLoop()
 	//		}
 	//	}
 	_mainWindow.clear();
+}
+
+void NobugEngine::Render() {
+	
+	for (std::map<int, GameObject*>::iterator i = GM->m_Objects.begin(); i != GM->m_Objects.end(); ++i) {
+		for (std::vector<BaseComponent*>::iterator j = (i->second)->m_Components.begin(); j != (i->second)->m_Components.end(); ++j) {
+			if (Renderer* r = dynamic_cast<Renderer*>((*j))) {
+				r->Render(_mainWindow, i->second);
+			}
+		}
+	}
+	
+
 }

@@ -16,12 +16,12 @@
     <Filter Include="Source\Components">
       <UniqueIdentifier>{9666b000-b086-40e0-bdb6-7d5e63ac47d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Engine">
+      <UniqueIdentifier>{4602a6bb-174d-4545-bb2d-e44faac190a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="SplashScreen.cpp">
@@ -33,9 +33,6 @@
     <ClCompile Include="Initialize.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="BaseComponent.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjectManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -45,20 +42,26 @@
     <ClCompile Include="Rigidbody.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Physics.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="World.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseComponent.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="SplashScreen.h">
       <Filter>Header</Filter>
     </ClInclude>
@@ -71,23 +74,29 @@
     <ClInclude Include="GameObjectManager.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="BaseComponent.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Rigidbody.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Physics.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
       <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseComponent.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Source\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Source\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

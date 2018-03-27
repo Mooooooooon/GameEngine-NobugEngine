@@ -12,6 +12,7 @@
 #include <iterator>
 #include "Rigidbody.h"
 
+
 class GameObject : public sf::Transformable {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {
@@ -30,18 +31,18 @@ public:
 	void Start();
 	void LateUpdate(sf::Time dt);
 
-public: // Members
-	Transform transform;    //local transform
 
+	Transform transform;  
+	std::vector<BaseComponent*> m_Components;
 
-private: // Members
+private: 
 	int m_UniqueID;
 
 	GameObject* m_Parent;
 	std::vector<GameObject*> m_Children;
 
 	sf::Transform worldTransform;
-	std::vector<BaseComponent*> m_Components;
+	
 	 
 	friend Rigidbody;
 

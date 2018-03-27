@@ -15,11 +15,24 @@ void GameObjectManager::Start() {
 	}
 }
 
+
 void GameObjectManager::Update(sf::Time dt) {
 	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
 		(i->second)->Update(dt);
 	}
 }
+
+void GameObjectManager::Render(sf::RenderWindow window)
+{
+	for (std::map<int, GameObject*>::iterator i = m_Objects.begin(); i != m_Objects.end(); ++i) {
+		for (std::vector<BaseComponent*>::iterator j = (i->second)->m_Components.begin(); j != (i->second)->m_Components.end(); ++j) {
+			if (Renderer* r = dynamic_cast<Renderer*>((*j))) {
+				r->Render(window, i->second);
+			}
+		}
+	}
+}
+
 
 GameObject* GameObjectManager::CreateObject()
 {

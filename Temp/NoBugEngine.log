@@ -1,5 +1,5 @@
 ﻿e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Engine.cpp
-e:\github\gameengine-nobugengine\source\nobugengine\engine.cpp(90): warning C4101: 'event': unreferenced local variable
+e:\github\gameengine-nobugengine\source\nobugengine\engine.cpp(102): warning C4101: 'event': unreferenced local variable
   NoBugEngine.vcxproj -> E:\GitHub\GameEngine-NobugEngine\Source\NoBugEngine\..\..\Debug\Win32_NoBugEngine\Win32_NoBugEngine.exe

@@ -5,6 +5,7 @@
 #include <SFML\Graphics.hpp>
 
 
+
 class Renderer : public BaseComponent {
 public:
 	Renderer(std::string imagepath);

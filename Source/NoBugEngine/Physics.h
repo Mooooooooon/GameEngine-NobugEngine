@@ -17,6 +17,9 @@ public:
 		Rigidbody rigidBodyA;
 		Rigidbody rigidBodyB;
 	};
+
+
+
 	struct CollisionInfo {
 		sf::Vector2f collisionNormal;
 		float penetration;
@@ -29,20 +32,25 @@ public:
 		return std::sqrt(std::pow(vector.x, 2) + std::pow(vector.y, 2));
 	}
 
+
+	
+	std::map<CollisionPair, CollisionInfo> collisions;
+	std::list<Rigidbody*> rigidBodies;
+
 	float groundedTolerance = 0.1f;
 	void AddRigidBody(Rigidbody rigidBody);
 	bool IsGrounded(Rigidbody rigidBody);
-
+	void UpdatePhysics(sf::Time dt);
 private:
-	std::list<Rigidbody> rigidBodies;
+	
 
 	
-	std::map<CollisionPair, CollisionInfo> collisions;	
+	
 	void CheckCollisions();
 	void ResolveCollisions();
 	void PositionalCorrection(CollisionPair c);
 
 	void IntegrateBodies(sf::Time dt);
-	void UpdatePhysics(sf::Time dt);
+	
 	void FixedUpdate(sf::Time dt);
 };

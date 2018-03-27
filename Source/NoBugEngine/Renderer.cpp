@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include <iostream>
 
 
 Renderer::Renderer(std::string imagepath) {
@@ -31,9 +32,10 @@ void Renderer::LateUpdate()
 
 void Renderer::Render(sf::RenderWindow & window, GameObject * gameobject)
 {
-	sprite.setPosition(gameobject->getPosition());
-	sprite.setRotation(gameobject->transform.m_Rotation);
-	sprite.setScale(gameobject->transform.m_Scale.x, gameobject->transform.m_Scale.y);
+	std::cout << "drawing" << std::endl;
+	//sprite.setPosition(gameobject->getPosition());
+	//sprite.setRotation(gameobject->transform.m_Rotation);
+	//sprite.setScale(gameobject->transform.m_Scale.x, gameobject->transform.m_Scale.y);
 	window.draw(sprite);
 }
 

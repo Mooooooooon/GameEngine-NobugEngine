@@ -6,26 +6,34 @@
 #include <Windows.h>
 #include <direct.h>
 #include "GameObjectManager.h"
+#include "World.h"
+#include "Physics.h"
 
 
 
 class NobugEngine
 {
 public:
+	 NobugEngine();
 	 void Start();
 	 bool Initialize();
 	
 private:
 	//bool IsExiting();
 	void InputProcess();
+	void Render();
 	void GameLoop();
 	enum GameState {
 		Uninitialized, Initialzed, Paused, ShowingMenu, Playing, Exiting
 	};
-	GameObjectManager GM;
+	GameObjectManager* GM;
+	Physics* _physics;
 	
-	 GameState _gameState;
-	 sf::RenderWindow _mainWindow;
+	GameState _gameState;
+
+	sf::RenderWindow _mainWindow;
+	World* _world;
+
 	
 	SplashScreen _splashScreen;
 
