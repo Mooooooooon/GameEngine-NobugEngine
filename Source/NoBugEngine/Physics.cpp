@@ -14,7 +14,7 @@ void Physics::IntegrateBodies(sf::Time dt)
 	}
 }
 
-
+	/*
 
 void Physics::CheckCollisions()
 {
@@ -26,12 +26,12 @@ void Physics::CheckCollisions()
 		{
 			Rigidbody* rb_B = *i;
 
-			if (rb_A != rb_B) {
-
+			if (j != i) {
+			
 				CollisionPair pair;
 				CollisionInfo info;
-				pair.rigidBodyA = *rb_A;
-				pair.rigidBodyB = *rb_B;
+				pair.rigidBodyA = rb_A;
+				pair.rigidBodyB = rb_B;
 
 				//sf::Vector2f distance = rb_B->m_gameObject->transform.m_Position - rb_A->m_gameObject->transform.m_Position;
 
@@ -41,7 +41,11 @@ void Physics::CheckCollisions()
 				sf::Vector2f distance = (rb_B->myParent->transform.m_Position + halfSizeB) - (rb_A->myParent->transform.m_Position + halfSizeA);
 				sf::Vector2f gap = sf::Vector2f(abs(distance.x), abs(distance.y)) - (halfSizeA + halfSizeB);
 
+
+
+				
 				std::cout << " dist " << distance.x << ", " << distance.y << " +  gap " << gap.x << ", " << gap.y << std::endl;
+
 				if (gap.x < 0 && gap.y < 0) {
 
 					//Collide
@@ -85,19 +89,28 @@ void Physics::CheckCollisions()
 		}
 
 	}
+
+	
 }
 
 void Physics::ResolveCollisions()
 {
 	for (std::map<CollisionPair, CollisionInfo>::iterator it = collisions.begin(); it != collisions.end(); ++it) {
 		
+		Rigidbody* rba = it->first.rigidBodyA;
+		Rigidbody* rbb = it->first.rigidBodyB;
+
 		
 		float minBounce = fmin(it->first.rigidBodyA.bounciness, it->first.rigidBodyB.bounciness);
+
 		float velAlongNormal = dot(it->first.rigidBodyB.currentVelocity - it->first.rigidBodyA.currentVelocity, collisions[it->first].collisionNormal);
+
 		if (velAlongNormal > 0) continue;
 
 		float j = -(1 + minBounce) * velAlongNormal;
+
 		float invMassA, invMassB;
+
 		if (it->first.rigidBodyA.mass == 0)
 			invMassA = 0;
 		else
@@ -115,8 +128,8 @@ void Physics::ResolveCollisions()
 		// ... update velocities
 		Rigidbody a = it->first.rigidBodyA;
 		Rigidbody b = it->first.rigidBodyB;
-		a.AddForce(impulse / 0.001f);
-		b.AddForce(-impulse / 0.001f);
+		a.AddForce(impulse);
+		b.AddForce(-impulse);
 	
 
 		if (abs(collisions[it->first].penetration) > 0.01f) {

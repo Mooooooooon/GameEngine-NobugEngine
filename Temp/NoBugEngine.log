@@ -1,27 +1,13 @@
-﻿e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'e:\github\gameengine-nobugengine\debug\win32_nobugengine\win32_nobugengine.pdb' because it is being used by another process.
-e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'e:\github\gameengine-nobugengine\debug\win32_nobugengine\win32_nobugengine.pdb' because it is being used by another process.
-e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-  Audio.cpp
-  BaseComponent.cpp
-  Engine.cpp
-e:\github\gameengine-nobugengine\source\nobugengine\engine.cpp(103): warning C4101: 'event': unreferenced local variable
-  GameObject.cpp
-  GameObjectManager.cpp
-  Initialize.cpp
-e:\github\gameengine-nobugengine\source\nobugengine\initialize.cpp(42): warning C4244: 'initializing': conversion from 'DWORDLONG' to 'int', possible loss of data
-e:\github\gameengine-nobugengine\source\nobugengine\initialize.cpp(43): warning C4244: 'initializing': conversion from 'DWORDLONG' to 'int', possible loss of data
-e:\github\gameengine-nobugengine\source\nobugengine\initialize.cpp(77): warning C4018: '<': signed/unsigned mismatch
-  Input.cpp
-  main.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
   Physics.cpp
-e:\github\gameengine-nobugengine\source\nobugengine\physics.cpp(31): error C2280: 'Physics::CollisionPair::CollisionPair(void)': attempting to reference a deleted function
-  e:\github\gameengine-nobugengine\source\nobugengine\physics.h(21): note: compiler has generated 'Physics::CollisionPair::CollisionPair' here
-  e:\github\gameengine-nobugengine\source\nobugengine\physics.h(21): note: 'Physics::CollisionPair::CollisionPair(void)': function was implicitly deleted because a data member 'Physics::CollisionPair::rigidBodyB' has either no appropriate default constructor or overload resolution was ambiguous
-  e:\github\gameengine-nobugengine\source\nobugengine\physics.h(20): note: see declaration of 'Physics::CollisionPair::rigidBodyB'
-  Renderer.cpp
-  Rigidbody.cpp
-  SplashScreen.cpp
-  Transform.cpp
-  World.cpp
   Generating Code...
+  Compiling...
+  main.cpp
+  World.cpp
+  Rigidbody.cpp
+  Engine.cpp
+c:\users\101011578\documents\github\gameengine-nobugengine\source\nobugengine\engine.cpp(103): warning C4101: 'event': unreferenced local variable
+  Generating Code...
+  NoBugEngine.vcxproj -> C:\Users\101011578\Documents\GitHub\GameEngine-NobugEngine\Source\NoBugEngine\..\..\Debug\Win32_NoBugEngine\Win32_NoBugEngine.exe
+  NoBugEngine.vcxproj -> ..\..\Debug\Win32_NoBugEngine\Win32_NoBugEngine.pdb (Partial PDB)

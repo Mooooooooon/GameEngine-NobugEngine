@@ -16,8 +16,8 @@ class Physics
 public:
 	
 	struct CollisionPair {
-		Rigidbody rigidBodyA;
-		Rigidbody rigidBodyB;
+		Rigidbody* rigidBodyA;
+		Rigidbody* rigidBodyB;
 	};
 
 
