@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "BaseComponent.h"
 #include <SFML\Graphics.hpp>
-
+class Physics;
 
 struct Vector2
 {

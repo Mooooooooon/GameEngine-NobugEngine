@@ -9,6 +9,8 @@
 #include "Renderer.h"
 #include "Input.h"
 
+class Physics;
+
 class World
 {
 public:

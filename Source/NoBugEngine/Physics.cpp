@@ -14,7 +14,7 @@ void Physics::IntegrateBodies(sf::Time dt)
 	}
 }
 
-/*
+
 
 void Physics::CheckCollisions()
 {
@@ -126,7 +126,7 @@ void Physics::ResolveCollisions()
 }
 
 
-*/
+
 /*
 void Physics::PositionalCorrection(CollisionPair c)
 {

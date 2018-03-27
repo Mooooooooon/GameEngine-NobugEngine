@@ -5,7 +5,7 @@
 #include "SFML/Window.hpp"
 #include <map>
 #include <vector>
-
+class Physics;
 
 enum Action
 {

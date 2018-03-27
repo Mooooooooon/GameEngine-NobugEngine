@@ -8,7 +8,7 @@
 #include <map>
 #include <list>
 #include <iterator>
-
+class Physics;
 class GameObjectManager
 {
 public:

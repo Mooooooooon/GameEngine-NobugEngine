@@ -5,7 +5,7 @@
 #include "SFML/Window.hpp"
 #include "GameObject.h"
 #include <SFML\Graphics.hpp>
-
+class Physics;
 class GameObject;
 
 struct Bounds

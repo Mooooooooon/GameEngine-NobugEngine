@@ -12,7 +12,7 @@
 #include <iterator>
 #include "Rigidbody.h"
 
-
+class Physics;
 class GameObject : public sf::Transformable {
 public:
 	GameObject(int uniqueID) : m_UniqueID(uniqueID), m_Parent(NULL) {

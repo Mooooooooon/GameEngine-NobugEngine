@@ -5,6 +5,7 @@ e:\github\gameengine-nobugengine\temp\transform.obj
 e:\github\gameengine-nobugengine\temp\splashscreen.obj
 e:\github\gameengine-nobugengine\temp\rigidbody.obj
 e:\github\gameengine-nobugengine\temp\renderer.obj
+e:\github\gameengine-nobugengine\temp\physics.obj
 e:\github\gameengine-nobugengine\temp\main.obj
 e:\github\gameengine-nobugengine\temp\initialize.obj
 e:\github\gameengine-nobugengine\temp\gameobjectmanager.obj
@@ -12,7 +13,7 @@ e:\github\gameengine-nobugengine\temp\gameobject.obj
 e:\github\gameengine-nobugengine\temp\engine.obj
 e:\github\gameengine-nobugengine\temp\basecomponent.obj
 e:\github\gameengine-nobugengine\temp\audio.obj
-e:\github\gameengine-nobugengine\temp\physics.obj
+e:\github\gameengine-nobugengine\temp\input.obj
 e:\github\gameengine-nobugengine\debug\win32_nobugengine\win32_nobugengine.exe
 e:\github\gameengine-nobugengine\debug\win32_nobugengine\win32_nobugengine.ilk
 e:\github\gameengine-nobugengine\debug\win32_nobugengine\win32_nobugengine.pdb

@@ -4,7 +4,7 @@
 //#include "Renderer.h"
 //#include "Rigidbody.h"
 
-
+class Physics;
 
 
 class BaseComponent {
