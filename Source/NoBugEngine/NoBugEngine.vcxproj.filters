@@ -60,6 +60,9 @@
     <ClCompile Include="Transform.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SplashScreen.h">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Source\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

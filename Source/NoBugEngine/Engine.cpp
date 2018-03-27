@@ -2,7 +2,7 @@
 #include "Initialize.h"
 
 
-const sf::Time NobugEngine::TimePerFrame = sf::milliseconds(16); // 16.6666 = 60fps
+const sf::Time NobugEngine::TimePerFrame = sf::milliseconds(33); // 16.6666 = 60fps
 
 NobugEngine::NobugEngine() :
 	_mainWindow(),
@@ -73,6 +73,7 @@ bool NobugEngine::Initialize()
 	
 	Initialize::InitAudioSystem();
 
+	_inputManager = new InputManager();
 	_world = new World(_physics,GM);
 	_world->Start();
 
@@ -104,6 +105,7 @@ void NobugEngine::GameLoop()
 	{
 		
 		// get input
+		
 
 		// update
 		sf::Time dt = clock.restart();
@@ -111,6 +113,7 @@ void NobugEngine::GameLoop()
 
 		while (timeSinceLastUpdate > TimePerFrame)
 		{
+			_inputManager->CheckInput(TimePerFrame);
 			timeSinceLastUpdate = sf::Time::Zero;
 
 			// update game objects
@@ -119,17 +122,10 @@ void NobugEngine::GameLoop()
 			// update physics
 			_physics->UpdatePhysics(TimePerFrame);
 
-			// update AI
-
 			
-
-
-			// render
 			_mainWindow.clear();
 			Render();
 			_mainWindow.display();
-
-			// play audio 
 
 
 		}

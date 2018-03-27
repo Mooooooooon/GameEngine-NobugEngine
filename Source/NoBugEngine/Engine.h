@@ -9,6 +9,7 @@
 #include "World.h"
 #include "Rigidbody.h"
 #include "Physics.h"
+#include "Input.h"
 
 class Physics;
 
@@ -36,6 +37,7 @@ private:
 	sf::RenderWindow _mainWindow;
 	World* _world;
 
+	InputManager* _inputManager;
 	
 	SplashScreen _splashScreen;
 

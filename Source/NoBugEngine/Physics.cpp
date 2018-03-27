@@ -14,7 +14,7 @@ void Physics::IntegrateBodies(sf::Time dt)
 	}
 }
 
-
+/*
 
 void Physics::CheckCollisions()
 {
@@ -87,7 +87,6 @@ void Physics::CheckCollisions()
 	}
 }
 
-
 void Physics::ResolveCollisions()
 {
 	for (std::map<CollisionPair, CollisionInfo>::iterator it = collisions.begin(); it != collisions.end(); ++it) {
@@ -127,6 +126,7 @@ void Physics::ResolveCollisions()
 }
 
 
+*/
 /*
 void Physics::PositionalCorrection(CollisionPair c)
 {

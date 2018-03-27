@@ -16,6 +16,14 @@ void World::Start() {
 	Renderer* bgImageRenderer = new Renderer("../../Assets/Images/bg.png");
 	backgroundimage->transform.m_Scale = sf::Vector2f(2.0f, 2.0f);
 	backgroundimage->AddComponent(bgImageRenderer);
+	sf::Music music;
+	if (!music.openFromFile("../../Assets/Sound/bensound-energy.wav"))
+	{
+		std::cout << " no music ";
+	}
+	music.play();
+	//backgroundimage->AddComponent(bgmusic);
+
 
 	//std::cout << "bg created " << std::endl;
 
@@ -25,6 +33,8 @@ void World::Start() {
 	box1->AddComponent(new Renderer("../../Assets/Images/beige.png"));
 	Rigidbody* box_Rigid = new Rigidbody(box1, _physicsEngine, true);
 	box1->AddComponent(box_Rigid);
+	//InputManager* input = new InputManager(box1);
+	
 	
 	//std::cout << box1->transform.m_Position.x << " " << box1->transform.m_Position.y << std::endl;
 	
