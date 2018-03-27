@@ -34,17 +34,18 @@ public:
 
 	Transform transform;  
 	std::vector<BaseComponent*> m_Components;
+	sf::Transform worldTransform;
 
-private: 
+
 	int m_UniqueID;
 
 	GameObject* m_Parent;
 	std::vector<GameObject*> m_Children;
 
-	sf::Transform worldTransform;
+	
 	
 	 
-	friend Rigidbody;
+	
 
 };
 

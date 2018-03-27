@@ -7,8 +7,10 @@
 #include <direct.h>
 #include "GameObjectManager.h"
 #include "World.h"
+#include "Rigidbody.h"
 #include "Physics.h"
 
+class Physics;
 
 
 class NobugEngine

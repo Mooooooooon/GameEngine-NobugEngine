@@ -11,7 +11,9 @@ Renderer::Renderer(std::string imagepath) {
 	}
 
 	sprite.setTexture(texture);
-
+	
+	bounds.center = sf::Vector2f(sprite.getOrigin().x, sprite.getOrigin().y);
+	bounds.ext = sf::Vector2f(sprite.getLocalBounds().width * 0.5f, sprite.getLocalBounds().height * 0.5f);
 }
 
 void Renderer::Awake()
@@ -32,10 +34,13 @@ void Renderer::LateUpdate()
 
 void Renderer::Render(sf::RenderWindow & window, GameObject * gameobject)
 {
-	std::cout << "drawing" << std::endl;
-	//sprite.setPosition(gameobject->getPosition());
+	std::cout << "drawing " << gameobject->transform.m_Position.x << gameobject->transform.m_Position.y << std::endl;
+	sprite.setPosition(gameobject->transform.m_Position.x,gameobject->transform.m_Position.y);
 	//sprite.setRotation(gameobject->transform.m_Rotation);
-	//sprite.setScale(gameobject->transform.m_Scale.x, gameobject->transform.m_Scale.y);
-	window.draw(sprite);
+	sprite.setScale(gameobject->transform.m_Scale.x, gameobject->transform.m_Scale.y);
+
+	
+	window.draw(sprite, gameobject->worldTransform);
+
 }
 

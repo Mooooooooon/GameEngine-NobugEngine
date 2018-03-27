@@ -1,10 +1,20 @@
 #pragma once
+#ifndef Renderer_h
+#define Renderer_h
 #include "BaseComponent.h"
 #include "SFML/Window.hpp"
 #include "GameObject.h"
 #include <SFML\Graphics.hpp>
 
+class GameObject;
 
+struct Bounds
+{
+public:
+	sf::Vector2f center;
+	sf::Vector2f ext;
+	
+};
 
 class Renderer : public BaseComponent {
 public:
@@ -12,6 +22,8 @@ public:
 	
 	sf::Texture texture;
 	sf::Sprite sprite;
+
+	Bounds bounds;
 
 	void Awake();
 	void Start();
@@ -21,3 +33,5 @@ public:
 	void Render(sf::RenderWindow& window, GameObject* gameobject);
 
 };
+
+#endif

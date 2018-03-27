@@ -1,4 +1,6 @@
 #pragma once
+#ifndef Physics_h
+#define Physics_h
 #include "Rigidbody.h"
 #include "Transform.h"
 
@@ -35,10 +37,10 @@ public:
 
 	
 	std::map<CollisionPair, CollisionInfo> collisions;
-	std::list<Rigidbody*> rigidBodies;
+	std::vector<Rigidbody*> rigidBodies;
 
 	float groundedTolerance = 0.1f;
-	void AddRigidBody(Rigidbody rigidBody);
+	void AddRigidBody(Rigidbody* rigidBody);
 	bool IsGrounded(Rigidbody rigidBody);
 	void UpdatePhysics(sf::Time dt);
 private:
@@ -54,3 +56,5 @@ private:
 	
 	void FixedUpdate(sf::Time dt);
 };
+
+#endif

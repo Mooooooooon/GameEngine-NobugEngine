@@ -1,5 +1,28 @@
 ﻿e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
 e:\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Audio.cpp
+  BaseComponent.cpp
   Engine.cpp
 e:\github\gameengine-nobugengine\source\nobugengine\engine.cpp(102): warning C4101: 'event': unreferenced local variable
-  NoBugEngine.vcxproj -> E:\GitHub\GameEngine-NobugEngine\Source\NoBugEngine\..\..\Debug\Win32_NoBugEngine\Win32_NoBugEngine.exe
+  GameObject.cpp
+  GameObjectManager.cpp
+  Initialize.cpp
+e:\github\gameengine-nobugengine\source\nobugengine\initialize.cpp(42): warning C4244: 'initializing': conversion from 'DWORDLONG' to 'int', possible loss of data
+e:\github\gameengine-nobugengine\source\nobugengine\initialize.cpp(43): warning C4244: 'initializing': conversion from 'DWORDLONG' to 'int', possible loss of data
+e:\github\gameengine-nobugengine\source\nobugengine\initialize.cpp(77): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  Physics.cpp
+e:\github\gameengine-nobugengine\source\nobugengine\physics.cpp(33): error C2819: type 'Physics::CollisionPair' does not have an overloaded member 'operator ->'
+  e:\github\gameengine-nobugengine\source\nobugengine\physics.h(18): note: see declaration of 'Physics::CollisionPair'
+  e:\github\gameengine-nobugengine\source\nobugengine\physics.cpp(33): note: did you intend to use '.' instead?
+e:\github\gameengine-nobugengine\source\nobugengine\physics.cpp(33): error C2232: '->Physics::CollisionPair::rigidBodyA': left operand has 'struct' type, use '.'
+e:\github\gameengine-nobugengine\source\nobugengine\physics.cpp(34): error C2819: type 'Physics::CollisionPair' does not have an overloaded member 'operator ->'
+  e:\github\gameengine-nobugengine\source\nobugengine\physics.h(18): note: see declaration of 'Physics::CollisionPair'
+  e:\github\gameengine-nobugengine\source\nobugengine\physics.cpp(34): note: did you intend to use '.' instead?
+e:\github\gameengine-nobugengine\source\nobugengine\physics.cpp(34): error C2232: '->Physics::CollisionPair::rigidBodyB': left operand has 'struct' type, use '.'
+  Renderer.cpp
+  Rigidbody.cpp
+  SplashScreen.cpp
+  Transform.cpp
+  World.cpp
+  Generating Code...

@@ -1,33 +1,43 @@
 #pragma once
+#ifndef Rigidbody_h
+#define Rigidbody_h
 #include "Transform.h"
+
 #include <SFML\Window.hpp>
+//#include "Physics.h"
 #include <stdio.h>
 #include <vector>
 #include <SFML\Graphics.hpp>
+#include "Renderer.h"
 
 class GameObject;
 class Physics;
 
-class Rigidbody {
+class Rigidbody : public BaseComponent 
+{
 public:
+	
+	friend Physics;
+
 	struct AABB
 	{
-		sf::Vector2f bLeft;
-		sf::Vector2f tRight;
+		sf::Vector2f tLeft;
+		sf::Vector2f bRight;
 	};
+
+	AABB aabb;
 
 	float mass = 1.0f;
 	float bounciness = 0.5f;
 	bool obeysGravity = true;
-	sf::Vector2f gravity = sf::Vector2f(0, -9.8f);
+	sf::Vector2f gravity = sf::Vector2f(0, 20.0f);
 	sf::Vector2f currentVelocity;
-	sf::Vector2f maxVelocity = sf::Vector2f(10.0f, 10.0f);
-
-	bool grounded;
+	sf::Vector2f maxVelocity = sf::Vector2f(30.0f, 30.0f);
+	Rigidbody(GameObject* go, Physics* engine, bool iskinematic);
 	
+	bool grounded = false;
+	bool isKinematic;
 	
-
-	AABB aabb;
 
 	void AddForce(sf::Vector2f force);
 
@@ -46,6 +56,5 @@ public:
 	Transform& GetTransform();
 };
 
-inline bool operator!= (Rigidbody &rb1, Rigidbody &rb2) {
-	return !(&rb1 == &rb2);
-}
+
+#endif
