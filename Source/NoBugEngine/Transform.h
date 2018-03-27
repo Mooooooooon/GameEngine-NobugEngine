@@ -23,9 +23,9 @@ public:
 	void LateUpdate();
 	
 		
-	Vector2 m_Position;
+	sf::Vector2f m_Position;
 	float m_Rotation;
-	Vector2 m_Scale;
+	sf::Vector2f m_Scale = sf::Vector2f(1.0f,1.0f);
 	
 	sf::Transform transformMatrix;
 };

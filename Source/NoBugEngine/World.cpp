@@ -13,13 +13,31 @@ void World::Start() {
 
 
 	GameObject* backgroundimage = _gameObjectManager->CreateObject();
-
 	Renderer* bgImageRenderer = new Renderer("../../Assets/Images/bg.png");
-
-	bgImageRenderer->sprite.setScale(500, 500);
+	backgroundimage->transform.m_Scale = sf::Vector2f(2.0f, 2.0f);
 	backgroundimage->AddComponent(bgImageRenderer);
 
-	std::cout << " created " << std::endl;
+	//std::cout << "bg created " << std::endl;
+
+	GameObject* box1 = _gameObjectManager->CreateObject();	
+	box1->transform.m_Position.x = 500;
+	box1->transform.m_Position.y = 300;
+	box1->AddComponent(new Renderer("../../Assets/Images/beige.png"));
+	Rigidbody* box_Rigid = new Rigidbody(box1, _physicsEngine, true);
+	box1->AddComponent(box_Rigid);
+	
+	//std::cout << box1->transform.m_Position.x << " " << box1->transform.m_Position.y << std::endl;
+	
+	GameObject* box2 = _gameObjectManager->CreateObject();
+	box2->transform.m_Position.x = 300;
+	box2->transform.m_Position.y = 600;
+	box2->transform.m_Scale = sf::Vector2f(5.0f, 1.0f);
+	box2->AddComponent(new Renderer("../../Assets/Images/green.png"));
+	Rigidbody* box2_Rigid = new Rigidbody(box2, _physicsEngine, false);
+	box2_Rigid->obeysGravity = false;
+	box2_Rigid->mass = 0;
+	box2->AddComponent(box2_Rigid);
+
 
 
 }
