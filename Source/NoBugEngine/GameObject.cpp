@@ -16,6 +16,7 @@ void GameObject::Start() {
 }
 
 void GameObject::Update(sf::Time dt) {
+	transform.Update();
 	if (m_Parent) {
 		worldTransform = m_Parent->worldTransform * transform.transformMatrix;
 	}
@@ -41,5 +42,6 @@ void GameObject::AddComponent(BaseComponent* component)
 
 void GameObject::AddChild(GameObject* child) {
 	m_Children.push_back(child);
+	child->m_Parent = this;
 }
 

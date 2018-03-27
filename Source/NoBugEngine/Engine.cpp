@@ -73,10 +73,11 @@ bool NobugEngine::Initialize()
 	
 	Initialize::InitAudioSystem();
 
-	_inputManager = new InputManager();
+	
 	_world = new World(_physics,GM);
 	_world->Start();
 
+	_inputManager = new InputManager(GM);
 	_gameState = Initialzed;
 
 	return true;
@@ -114,6 +115,7 @@ void NobugEngine::GameLoop()
 		while (timeSinceLastUpdate > TimePerFrame)
 		{
 			_inputManager->CheckInput(TimePerFrame);
+
 			timeSinceLastUpdate = sf::Time::Zero;
 
 			// update game objects

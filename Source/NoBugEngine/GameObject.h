@@ -11,6 +11,7 @@
 #include <vector>
 #include <iterator>
 #include "Rigidbody.h"
+#include <string>
 
 class Physics;
 class GameObject : public sf::Transformable {
@@ -31,7 +32,7 @@ public:
 	void Start();
 	void LateUpdate(sf::Time dt);
 
-
+	std::string tag = "None";
 	Transform transform;  
 	std::vector<BaseComponent*> m_Components;
 	sf::Transform worldTransform;

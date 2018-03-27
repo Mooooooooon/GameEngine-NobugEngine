@@ -19,7 +19,7 @@ enum Action
 class InputManager {
 
 public:
-	InputManager();
+	InputManager(GameObjectManager* gm);
 	//InputManager(GameObject* go);
 
 	void CheckInput(sf::Time dt);
@@ -28,7 +28,7 @@ public:
 
 	std::map<sf::Keyboard::Key, Action>	mKeyBinding;
 	Action currentAction;
-
+	GameObjectManager* _gm;
 	GameObject* gObject;
 	void Awake();
 	void Start();
