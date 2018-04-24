@@ -108,7 +108,7 @@ void NobugEngine::GameLoop()
 		// get input
 		
 
-		// update
+		// update 
 		sf::Time dt = clock.restart();
 		timeSinceLastUpdate += dt;
 

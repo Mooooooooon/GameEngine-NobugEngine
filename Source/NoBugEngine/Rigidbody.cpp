@@ -15,7 +15,13 @@ Rigidbody::Rigidbody(GameObject * go, Physics * engine, bool iskinematic)
 
 void Rigidbody::AddForce(sf::Vector2f force)
 {
+	if (mass == 0) {
+
+		return;
+	}
 	totalForces = sf::Vector2f(totalForces.x + force.x, totalForces.y + force.y);
+
+	std::cout << " Totalforce +="  << totalForces.y <<  std::endl;
 }
 
 void Rigidbody::Stop()
@@ -60,11 +66,14 @@ void Rigidbody::Integrate(sf::Time dT)
 {
 	
 	if (obeysGravity && !IsGrounded()) {
-		//std::cout << "gravity" << std::endl;
+		 
 		AddForce(gravity);
 	}
 	else {
-		if (abs(currentVelocity.y) < 0.05f) currentVelocity.y = 0;
+		if (abs(currentVelocity.y) < 0.05f) {
+			std::cout << "grounded" << std::endl;
+			currentVelocity.y = 0;
+		}
 	}
 
 
@@ -73,12 +82,16 @@ void Rigidbody::Integrate(sf::Time dT)
 	if (mass == 0)
 		acceleration = sf::Vector2f(0,0);
 
+	std::cout << "Velocity " << currentVelocity.y << " + " << (acceleration.y * dT.asSeconds()) << std::endl;
+
+
 	currentVelocity += acceleration * dT.asSeconds();
 
 	sf::Vector2f temp = myParent->transform.m_Position;
 
 	temp += currentVelocity * dT.asSeconds();
 	myParent->transform.m_Position = temp;
+	
 
 	//std::cout << "Force " << totalForces.y << std::endl;
 	//std::cout << "P " << myParent->transform.m_Position.x << myParent->transform.m_Position.y << std::endl;

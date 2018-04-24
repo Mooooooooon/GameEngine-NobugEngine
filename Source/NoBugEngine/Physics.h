@@ -18,6 +18,10 @@ public:
 	struct CollisionPair {
 		Rigidbody* rigidBodyA;
 		Rigidbody* rigidBodyB;
+
+		bool operator<(const CollisionPair& other) const {
+			return false;
+		}
 	};
 
 
@@ -25,6 +29,10 @@ public:
 	struct CollisionInfo {
 		sf::Vector2f collisionNormal;
 		float penetration;
+
+		bool operator<(const CollisionPair& other) const {
+			return false;
+		}
 	};
 	float dot(sf::Vector2f v1, sf::Vector2f v2) {
 
@@ -49,7 +57,7 @@ private:
 	
 	
 	void CheckCollisions();
-	void ResolveCollisions();
+	void ResolveCollisions(sf::Time dt);
 	void PositionalCorrection(CollisionPair c);
 
 	void IntegrateBodies(sf::Time dt);

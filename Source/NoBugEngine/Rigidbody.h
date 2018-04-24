@@ -28,9 +28,11 @@ public:
 	AABB aabb;
 
 	float mass = 1.0f;
-	float bounciness = 0.5f;
+	float bounciness =1.0f;
+
+	bool isCollided = false;
 	bool obeysGravity = true;
-	sf::Vector2f gravity = sf::Vector2f(0, 20.0f);
+	sf::Vector2f gravity = sf::Vector2f(0, 98.0f);
 	sf::Vector2f currentVelocity;
 	sf::Vector2f maxVelocity = sf::Vector2f(30.0f, 30.0f);
 	Rigidbody(GameObject* go, Physics* engine, bool iskinematic);

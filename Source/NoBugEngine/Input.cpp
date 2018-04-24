@@ -29,7 +29,7 @@ void InputManager::CheckInput(sf::Time dt)
 			currentAction = None;
 		}
 		std::map<int, GameObject*> _objects = _gm->m_Objects;
-		std::cout << _objects.size() << std::endl;
+		//std::cout << _objects.size() << std::endl;
 		GameObject* player = _objects[1];
 
 		switch (currentAction)
@@ -40,7 +40,7 @@ void InputManager::CheckInput(sf::Time dt)
 
 			//}
 			player->transform.m_Position.x -= 5;
-			std::cout << player->transform.m_Position.x << std::endl;	
+			//std::cout << player->transform.m_Position.x << std::endl;	
 			break;
 		case MoveRight:
 			std::cout << "Right" << std::endl;

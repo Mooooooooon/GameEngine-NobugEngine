@@ -1,6 +1,6 @@
 #include "Physics.h"
 #include "Rigidbody.h"
-
+#include <iostream>
 
 void Physics::AddRigidBody(Rigidbody* rigidBody)
 {
@@ -14,41 +14,37 @@ void Physics::IntegrateBodies(sf::Time dt)
 	}
 }
 
-	/*
 
 void Physics::CheckCollisions()
 {
 
 	for (std::vector<Rigidbody*>::iterator j = rigidBodies.begin(); j != rigidBodies.end(); ++j)
 	{
-		Rigidbody* rb_A = *j;
+		Rigidbody* rigidBodyA = *j;
 		for (std::vector<Rigidbody*>::iterator i = j; i != rigidBodies.end(); ++i)
 		{
-			Rigidbody* rb_B = *i;
+			Rigidbody* rigidBodyB = *i;
 
-			if (j != i) {
-			
+			if (rigidBodyA != rigidBodyB) {
 				CollisionPair pair;
 				CollisionInfo info;
-				pair.rigidBodyA = rb_A;
-				pair.rigidBodyB = rb_B;
+				pair.rigidBodyA = rigidBodyA;
+				pair.rigidBodyB = rigidBodyB;
 
 				//sf::Vector2f distance = rb_B->m_gameObject->transform.m_Position - rb_A->m_gameObject->transform.m_Position;
 
-				sf::Vector2f halfSizeA = (rb_A->aabb.bRight - rb_A->aabb.tLeft) * 0.5f;
-				sf::Vector2f halfSizeB = (rb_B->aabb.bRight - rb_B->aabb.tLeft) * 0.5f;
+				sf::Vector2f halfSizeA = (rigidBodyA->aabb.bRight - rigidBodyA->aabb.tLeft) * 0.5f;
+				sf::Vector2f halfSizeB = (rigidBodyB->aabb.bRight - rigidBodyB->aabb.tLeft) * 0.5f;
 
-				sf::Vector2f distance = (rb_B->myParent->transform.m_Position + halfSizeB) - (rb_A->myParent->transform.m_Position + halfSizeA);
+				sf::Vector2f distance = (rigidBodyB->myParent->transform.m_Position + halfSizeB) - (rigidBodyA->myParent->transform.m_Position + halfSizeA);
 				sf::Vector2f gap = sf::Vector2f(abs(distance.x), abs(distance.y)) - (halfSizeA + halfSizeB);
 
-
-
-				
-				std::cout << " dist " << distance.x << ", " << distance.y << " +  gap " << gap.x << ", " << gap.y << std::endl;
-
 				if (gap.x < 0 && gap.y < 0) {
-
+					rigidBodyA->isCollided = true;
+					rigidBodyB->isCollided = true;
 					//Collide
+
+					std::cout << "collided " << std::endl;
 					if (collisions.find(pair) != collisions.end()) {
 
 						collisions.erase(pair);
@@ -67,11 +63,11 @@ void Physics::CheckCollisions()
 					}
 					else {
 						if (distance.y > 0) {
-							info.collisionNormal = sf::Vector2f(0.0f, -1.0f);
+							info.collisionNormal = sf::Vector2f(0.0f, 1.0f);
 						}
 						else
 						{
-							info.collisionNormal = sf::Vector2f(0.0f, 1.0f);
+							info.collisionNormal = sf::Vector2f(0.0f, -1.0f);
 						}
 						info.penetration = gap.y;
 					}
@@ -81,7 +77,7 @@ void Physics::CheckCollisions()
 				}
 				else if (collisions.find(pair) != collisions.end()) {
 					//std::cout << "removed" << std::endl;
-					//collisions.erase(pair);
+					collisions.erase(pair);
 				}
 
 			}
@@ -93,47 +89,52 @@ void Physics::CheckCollisions()
 	
 }
 
-void Physics::ResolveCollisions()
+void Physics::ResolveCollisions(sf::Time dt)
 {
-	for (std::map<CollisionPair, CollisionInfo>::iterator it = collisions.begin(); it != collisions.end(); ++it) {
-		
-		Rigidbody* rba = it->first.rigidBodyA;
-		Rigidbody* rbb = it->first.rigidBodyB;
+	for (std::map<CollisionPair, CollisionInfo>::iterator it = collisions.begin(); it != collisions.end(); ++it)
+	{
 
-		
-		float minBounce = fmin(it->first.rigidBodyA.bounciness, it->first.rigidBodyB.bounciness);
+		CollisionPair pair = it->first;
 
-		float velAlongNormal = dot(it->first.rigidBodyB.currentVelocity - it->first.rigidBodyA.currentVelocity, collisions[it->first].collisionNormal);
+		float minBounce = std::min(pair.rigidBodyA->bounciness, pair.rigidBodyB->bounciness);
+		std::cout << "minBounce " << minBounce << std::endl;
 
+		sf::Vector2f v = pair.rigidBodyB->currentVelocity - pair.rigidBodyA->currentVelocity;
+		float velAlongNormal = v.x*collisions[pair].collisionNormal.x + v.y*collisions[pair].collisionNormal.y;
 		if (velAlongNormal > 0) continue;
 
-		float j = -(1 + minBounce) * velAlongNormal;
-
+		std::cout << "velAlongNorm " << velAlongNormal << std::endl;
+		float j = -( 1 + minBounce ) * velAlongNormal;
+		std::cout << "j1 " << j << std::endl;
 		float invMassA, invMassB;
-
-		if (it->first.rigidBodyA.mass == 0)
+		if (pair.rigidBodyA->mass == 0) {
 			invMassA = 0;
-		else
-			invMassA = 1 / it->first.rigidBodyA.mass;
+		}
+		else {
+			invMassA = 1 / pair.rigidBodyA->mass;
+		}
 
-		if (it->first.rigidBodyB.mass == 0)
+		if (pair.rigidBodyB->mass == 0) {
 			invMassB = 0;
-		else
-			invMassB = 1 / it->first.rigidBodyB.mass;
+		}
+		else {
+			invMassB = 1 / pair.rigidBodyB->mass;
+		}
 
 		j /= invMassA + invMassB;
 
-		sf::Vector2f impulse = j * collisions[it->first].collisionNormal;
-		CollisionPair p = it->first;
-		// ... update velocities
-		Rigidbody a = it->first.rigidBodyA;
-		Rigidbody b = it->first.rigidBodyB;
-		a.AddForce(impulse);
-		b.AddForce(-impulse);
-	
+		std::cout << "j " << j << std::endl;
 
-		if (abs(collisions[it->first].penetration) > 0.01f) {
-			PositionalCorrection(it->first);
+
+		sf::Vector2f impulse = j * collisions[pair].collisionNormal;
+
+		std::cout << "impulse " << impulse.y << std::endl;
+		
+		pair.rigidBodyA->AddForce(-impulse/dt.asSeconds());
+		pair.rigidBodyB->AddForce(impulse/ dt.asSeconds());
+
+		if (abs(collisions[pair].penetration) > 0.01f) {
+			//PositionalCorrection(pair);
 		}
 	}
 }
@@ -191,8 +192,8 @@ return false;
 void Physics::UpdatePhysics(sf::Time dt)
 {
 	IntegrateBodies(dt);
-	//CheckCollisions();
-	//ResolveCollisions();
+	CheckCollisions();
+	ResolveCollisions(dt);
 }
 
 void Physics::FixedUpdate(sf::Time dt)

@@ -35,9 +35,9 @@ void Renderer::LateUpdate()
 void Renderer::Render(sf::RenderWindow & window, GameObject * gameobject)
 {
 	//std::cout << "drawing " << gameobject->transform.m_Position.x << gameobject->transform.m_Position.y << std::endl;
-	sprite.setPosition(gameobject->transform.m_Position.x,gameobject->transform.m_Position.y);
+	//sprite.setPosition(gameobject->transform.m_Position.x,gameobject->transform.m_Position.y);
 	//sprite.setRotation(gameobject->transform.m_Rotation);
-	sprite.setScale(gameobject->transform.m_Scale.x, gameobject->transform.m_Scale.y);
+	//sprite.setScale(gameobject->transform.m_Scale.x, gameobject->transform.m_Scale.y);
 
 	
 	window.draw(sprite, gameobject->worldTransform);

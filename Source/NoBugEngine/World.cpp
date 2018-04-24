@@ -30,7 +30,7 @@ void World::Start() {
 
 
 	//std::cout << "bg created " << std::endl;
-
+	/*
 	GameObject* box1 = _gameObjectManager->CreateObject();	
 	box1->transform.m_Position.x = 100;
 	box1->transform.m_Position.y = 100;
@@ -46,21 +46,24 @@ void World::Start() {
 	box1->AddChild(box3);
 
 
+	*/
 	GameObject* box4 = _gameObjectManager->CreateObject();
-	box4->transform.m_Position.x = 400;
-	box4->transform.m_Position.y = 100;
+	box4->transform.m_Position.x += 100;
+	box4->transform.m_Position.y += 200;
 	box4->AddComponent(new Renderer("../../Assets/Images/beige.png"));
 	Rigidbody* box_Rigid4 = new Rigidbody(box4, _physicsEngine, true);
+	//box_Rigid4->obeysGravity = false;
 	box4->AddComponent(box_Rigid4);
-	//InputManager* input = new InputManager(box1);
 	
+
+	//InputManager* input = new InputManager(box1);
 	
 	//std::cout << box1->transform.m_Position.x << " " << box1->transform.m_Position.y << std::endl;
 	
 	GameObject* box2 = _gameObjectManager->CreateObject();
-	box2->transform.m_Position.x = 000;
-	box2->transform.m_Position.y = 300;
-	box2->transform.m_Scale = sf::Vector2f(3.0f, 1.0f);
+	box2->transform.m_Position.x += 200;
+	box2->transform.m_Position.y += 700;
+	box2->transform.m_Scale = sf::Vector2f(2.0f, 1.0f);
 	box2->AddComponent(new Renderer("../../Assets/Images/green.png"));
 	Rigidbody* box2_Rigid = new Rigidbody(box2, _physicsEngine, false);
 	box2_Rigid->obeysGravity = false;
