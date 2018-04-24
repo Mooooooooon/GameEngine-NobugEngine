@@ -16,7 +16,7 @@ void NobugEngine::Start() {
 		return;
 
 
-	_mainWindow.create(sf::VideoMode(1024, 768, 32), "NobugGame");
+	_mainWindow.create(sf::VideoMode(600, 700, 32), "NobugGame");
 	
 
 
